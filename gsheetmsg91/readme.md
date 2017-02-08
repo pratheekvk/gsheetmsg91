@@ -5,7 +5,7 @@ Prerequisites:
 2. If you want to make an advanced version of this you will need to learn some basics from https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app
 3. This script is built to send SMSs to Indian numbers only, but that can easily be changed with a few corrections.
 
-Step 1: Create a Google Spreadsheet - https://drive.google.com/
+Step 1: Create a Google Spreadsheet - https://drive.google.com/ . Rename Sheet1 to "SendSMS"
 Step 2: In cell A1, Type "Name of Customer", and in B2, Type "Phone Number". This is just as a guide, you can name it whatever you like. These values in the first row will not affect script execution
 Step 2: Click Tools -> Script Editor
 Step 3: In the editor that opens up, copy paste the code from sendSMS.gs in this repository.
