@@ -25,11 +25,10 @@ function sendSMS()
     msg = msg.replace("fieldDev",sheet.getRange(i,3).getValue());
     //Browser.msgBox(msg);
     sheet.getRange(i,4).setValue("Sending")
-    
-    var query = {"mobiles" : sheet.getRange(i,2).getValue(),"message": msg,"sender": "SASTAS","route" : "4","country" : "91"}
-    var url = "https://control.msg91.com/api/sendhttp.php?authkey=107712AkqaZ29mqp56efbd26&sender=SASTAS&route=1&country=91&mobiles="+sheet.getRange(i,2).getValue()+"&message=Dear "+sheet.getRange(i,1).getValue()+", Best prices and high quality phone service for your "+sheet.getRange(i,3).getValue()+" only with SastaService. Visit www.sastaservice.com now!";  
+    var authkey = "TypeYourAuthKeyHere"
+    var senderid = "ABCDEF" //Type your chosen 6 character Sender Id here
+    var url = "https://control.msg91.com/api/sendhttp.php?authkey="+authkey+"&sender="+senderid+"&route=1&country=91&mobiles="+sheet.getRange(i,2).getValue()+"&message=Dear "+sheet.getRange(i,1).getValue()+", Type rest of your message here.";  
     //Browser.msgBox(url)
-    url = url.replace("%","\%");
     Logger.log("Making request to "+url);
     var response = UrlFetchApp.fetch(url);
     Logger.log(response);
@@ -43,6 +42,4 @@ function onOpen()
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var menuEntries = [ {name: "Send Messages", functionName: "sendSMS"}];
   ss.addMenu("SMS", menuEntries);
-  
- // Browser.msgBox("iService Contract Generator", "Please enter all employee details in the respective columns after deleting ALL old data if any. Then click Contracts to generate.", Browser.Buttons.OK);
 }
